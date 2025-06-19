@@ -11,11 +11,15 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/tailwind": "^5.1.2",
+    "@astrojs/react": "^4.3.0",
+    "@astrojs/tailwind": "^6.0.2",
     "@fontsource-variable/gabarito": "^5.1.0",
     "@fontsource/be-vietnam-pro": "^5.1.0",
+    "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
-    "astro": "^4.16.6",
+    "astro": "^5.9.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "tailwindcss": "^3.4.11",
     "typescript": "^5.6.2"
   },
