@@ -4,29 +4,25 @@ import type { AboutProps, HeroProps } from "@types";
 
 type Props = AboutProps & Pick<HeroProps, "name">;
 
-const { description, name } = Astro.props;
+const { description, image } = Astro.props;
 ---
 
-<Section text="Sobre mi" href="about">
+<Section text="About Me" href="about">
   <div class="flex gap-12 md:gap-8 flex-col items-center md:flex-row">
-    <div 
-      class="text-neutral w-auto text-base md:pr-5 opacity-0 transition-all duration-700 translate-y-16 whitespace-pre-line"
+    <div
+      class="text-[#EDE6DA] w-auto text-base md:pr-5 opacity-0 transition-all duration-700 translate-y-16 whitespace-pre-line"
       data-scroll-animation
     >
       {description}
     </div>
     <div
-      class="w-64 h-80 bg-white p-4 flex-shrink-0 rotate-[5deg] md:rotate-[7deg] opacity-0 transition-all duration-700 translate-y-16"
+      class="w-64 h-80 bg-[#3A362F] p-4 flex-shrink-0 rotate-[5deg] md:rotate-[7deg] opacity-0 transition-all duration-700 translate-y-16 border-4 border-[#F5D0A9]"
       data-scroll-animation
     >
       <img
-        class="object-cover rounded-lg shadow-lg"
-        src="/pablo-small.png"
-        width="260"
-        height="260"
-        alt={name}
-        loading="lazy"
-        decoding="async"
+        src={image}
+        alt="Chungsiang Roeurn portrait"
+        class="w-full h-full object-cover"
       />
     </div>
   </div>
@@ -34,14 +30,16 @@ const { description, name } = Astro.props;
 
 <script>
   function setupScrollAnimations() {
-    const animatedElements = document.querySelectorAll('[data-scroll-animation]');
-    
+    const animatedElements = document.querySelectorAll(
+      "[data-scroll-animation]",
+    );
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            (entry.target as HTMLElement).style.opacity = '1';
-            (entry.target as HTMLElement).style.transform = 'translateY(0)';
+            (entry.target as HTMLElement).style.opacity = "1";
+            (entry.target as HTMLElement).style.transform = "translateY(0)";
             observer.unobserve(entry.target);
           }
         });
@@ -49,8 +47,8 @@ const { description, name } = Astro.props;
       {
         root: null,
         threshold: 0.1,
-        rootMargin: '-50px'
-      }
+        rootMargin: "-50px",
+      },
     );
 
     animatedElements.forEach((element) => {
@@ -58,9 +56,9 @@ const { description, name } = Astro.props;
     });
   }
 
-  // Ejecutar al cargar la página
+  // Run on page load
   setupScrollAnimations();
 
-  // Ejecutar después de la navegación de Astro
-  document.addEventListener('astro:page-load', setupScrollAnimations);
+  // Run after Astro page navigation
+  document.addEventListener("astro:page-load", setupScrollAnimations);
 </script>

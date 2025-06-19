@@ -3,7 +3,11 @@ export interface SiteConfig extends HeaderProps {
   description: string;
   lang: string;
   author: string;
-  socialLinks: { text: string; href: string }[];
+  socialLinks: {
+    text: string;
+    href: string;
+    icon?: string;
+  }[];
   socialImage: string;
   canonicalURL?: string;
 }
@@ -17,16 +21,18 @@ export interface SiteContent {
 export interface HeroProps {
   name: string;
   specialty: string;
-  summary: string;
+  summary1: string;
+  summary2: string;
   email: string;
 }
 
 export interface ProjectProps {
   name: string;
   summary: string;
-  image: string;
   link?: string;
   code?: string;
+  image?: any;
+  technologies?: string[];
 }
 
 export interface AboutProps {
@@ -45,4 +51,10 @@ export interface AnimatedTextProps {
 
 export interface LogoProps {
   name: string;
+}
+
+export interface TechStackItem {
+  name: string;
+  icon: string;
+  url: string;
 }

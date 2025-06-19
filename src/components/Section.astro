@@ -6,10 +6,10 @@ interface Props {
 }
 
 const { text, href, class: className } = Astro.props;
-const sectionId = href.startsWith('#') ? href.slice(1) : href;
+const sectionId = href.startsWith("#") ? href.slice(1) : href;
 ---
 
-<section id={sectionId} class={`pb-10 ${className || ''}`}>
+<section id={sectionId} class={`pb-10 ${className || ""}`}>
   <h2
     class="text-4xl md:text-5xl font-serif font-bold tracking-tighter text-white my-12"
   >

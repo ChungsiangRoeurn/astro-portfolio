@@ -8,24 +8,37 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer
-  class="text-white w-full text-center pb-8 pt-5 px-5 border-t border-neutral/20"
+  class="w-full bg-[#2C2824] text-[#EDE6DA] border-t border-neutral/20 shadow-inner px-6 py-6"
 >
-  <ul class="flex flex-wrap gap-x-5 justify-center mb-5 text-xs">
-    {
-      socialLinks.map(({ text, href }) => (
-        <li>
-          <a
-            href={href}
-            target="_blank"
-            class="hover:text-primary inline-block py-3 px-4 after:relative after:bottom-[-4px] after:content-[url(/external.svg)]"
-          >
-            {text}
-          </a>
-        </li>
-      ))
-    }
-  </ul>
-  <p class="text-xs">
-    {author} © 2024 - {currentYear}.
-  </p>
+  <div class="max-w-5xl mx-auto flex flex-col items-center gap-4">
+    <ul class="flex flex-wrap justify-center gap-3">
+      {
+        socialLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-1 rounded-md px-3 py-1.5 transition-all duration-300 bg-[#F5D0A9] text-black hover:bg-[#f2be86]"
+            >
+              {link.icon && (
+                <img
+                  src={link.icon}
+                  alt={`${link.text} icon`}
+                  width="25"
+                  height="25"
+                  class="inline-block"
+                />
+              )}
+              <span class="text-sm font-medium">{link.text}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <p class="text-xs text-neutral-400 select-none tracking-wide text-center">
+      {author} © {currentYear}. All rights reserved.
+    </p>
+  </div>
 </footer>

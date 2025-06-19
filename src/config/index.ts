@@ -1,77 +1,144 @@
 import type { SiteConfig, SiteContent } from "../types";
 
 export const SITE_CONFIG: SiteConfig = {
-  title: "Pablo M.G. — Web Developer",
-  author: "Pablo M.G.",
-  description:
-    "Soy Pablo 🙋‍♂️, Web Developer 🧑‍💻",
-  lang: "es",
-  siteLogo: "/pablo-small.png",
+  title: "JIANGSUNG. — Web Developer",
+  author: "Built with Astro.",
+  description: "Jiang Sung, Web Developer from Cambodia",
+  lang: "km,en",
+  siteLogo: "/chungsiang-logo.png",
   navLinks: [
-    { text: "Projectos", href: "#projects" },
-    { text: "Sobre mi", href: "#about" },
+    { text: "Home", href: "/" },
+    { text: "Experiences", href: "/experiences" },
+    { text: "Journey", href: "/journey" },
   ],
+
   socialLinks: [
-    { text: "LinkedIn", href: "https://www.linkedin.com/in/pablomgdev/" },
-    { text: "Github", href: "https://github.com/pablomg-dev" },
-    { text: "Instagram", href: "https://www.instagram.com/pablomg.dev/" },
+    {
+      text: "LinkedIn",
+      href: "https://www.linkedin.com/in/chungsiang-roeurn/",
+      icon: "/icons/linkedin.svg",
+    },
+    {
+      text: "Github",
+      href: "https://github.com/ChungsiangRoeurn",
+      icon: "/icons/github.svg",
+    },
+    {
+      text: "Facebook",
+      href: "https://web.facebook.com/chungsiang.roeurn.79",
+      icon: "/icons/facebook.svg",
+    },
+    {
+      text: "Telegram",
+      href: "https://t.me/rn_chungsiang",
+      icon: "/icons/telegram.svg",
+    },
   ],
-  socialImage: "/vistaprevia.png",
-  canonicalURL: "https://pablomgdev.netlify.app/",
+  socialImage: "/icons/telegram.svg",
+  canonicalURL: "https://chungsiang-roeurn.vercel.app/",
 };
 
 export const SITE_CONTENT: SiteContent = {
   hero: {
-    name: "Pablo M.G.",
+    name: "CHUNGSIANG ROEURN.",
     specialty: "Web Developer",
-    summary:
-      "¡Bienvenido/a!, Soy Pablo 🙋‍♂️, te ayudo a crear tu sitio 🧑‍💻",
-    email: "pablomartingonzalez2025@gmail.com",
+    summary1:
+      "Hey, I’m Jiang Sung — a web developer excited to create and innovate!",
+    summary2: "Have a project in mind? Let's make it happen.",
+    email: "rn.chungsiang@gmail.com",
   },
   projects: [
     {
-      name: "Soy Jessi Carmona",
-      summary: "Sitio web para una terapeuta de artes sanadoras. El enfoque estuvo en crear una experiencia visual armoniosa que refleje su trabajo en meditación, yoga y desarrollo personal. La web comunica cercanía, claridad y bienestar, invitando a la exploración del autoconocimiento y la conexión con la comunidad.",
-      link: "https://soyjessicarmona.com/",
-      code: "https://github.com/pablomg-dev/jessiCarmona",
-      image: "/soyjessi.png",
+      name: "Book Borrow Library App",
+      summary:
+        "A peer-to-peer book borrowing platform built during a 2025 hackathon. I focused on both frontend development and project architecture.",
+      link: "https://bookswap.example.com",
+      code: "https://github.com/ChungsiangRoeurn/Y-REPORTER",
+      technologies: ["Next.js", "Tailwind CSS", "Shadcn"],
     },
     {
-      name: "Cora Astrología Viva",
-      summary: "Este sitio web está diseñado para reflejar la esencia y los servicios de una terapeuta holística, combinando un enfoque visual relajante con información clara y accesible.",
-      link: "https://corastrologiaviva.netlify.app/",
-      code: "https://github.com/pmg369/CoraAstrologiaViva",
-      image: "/corastro.png",
-    },
-    {
-      name: "Espacio Luminem",
-      summary: "Sitio personal para terapeuta holístico. La página busca transmitir serenidad y confianza desde el primer momento, creando un espacio donde los visitantes se sientan en paz y acogidos.",
-      link: "https://espacio-luminem.com/",
-      code: "https://github.com/pmg369/espacio-luminem",
-      image: "/esplum.png",
-    },
-    {
-      name: "Plataforma Disco Music",
-      summary: "Este proyecto está inspirado en mi banda favorita, Audioslave. Permite a los usuarios registrarse, editar álbumes y canciones, agregar nuevos elementos, y ofrece la opción de escuchar canciones en streaming o enlazarlas a videos de YouTube.",
-      link: "https://audioslave-fanpage-p5.onrender.com/",
-      code: "https://github.com/pmg369/plataforma-disco-music",
-      image: "/platdismu.png",
+      name: "E-commerce Electronics Store",
+      summary:
+        "A collaborative project built with a friend. I focused on API integration and frontend UI development.",
+      link: "https://yourwebsite.com",
+      code: "https://github.com/yourname/quizgen",
+      technologies: ["Next.js", "Shadcn", "Laravel", "MySQL"],
     },
   ],
   about: {
     description: `
-      ¡Hola! Soy Pablo, Desarrollador Web.
+      I am passionate about technology and love building digital products that solve real-world problems.
 
-      Creo soluciones digitales para proyectos personales y emprendimientos. Especializado en:
+      I'm a student in the field of Computer Science, based in Cambodia 🇰🇭.
 
-      - Páginas personales que destaquen tu marca
-      - Proyectos a medida
-      - Optimización de tu sitio web
+      Whether it's:
+      - Personal websites to showcase your brand
+      - Custom projects tailored to your needs
+      - Web performance and optimization
 
-      Me enfoco en calidad y funcionalidad, trabajando de cerca con cada cliente.
+      I focus on quality and functionality, collaborating closely with every client to bring their ideas to life.
 
-      ¿Listo/a para llevar tu proyecto al siguiente nivel?
+      Ready to take your project to the next level? Let’s work together!
     `,
-    image: "/pablo-big.jpg",
+    image: "/chungsiang.png",
   },
 };
+
+export const techStack = [
+  {
+    name: "Astro",
+    icon: "/tech/astro.svg",
+    url: "https://astro.build/",
+  },
+  {
+    name: "Tailwind",
+    icon: "/tech/tailwind.svg",
+    url: "https://tailwindcss.com",
+  },
+  {
+    name: "Javascript",
+    icon: "/tech/javascript.svg",
+    url: "",
+  },
+  {
+    name: "TypeScript",
+    description: "A superset of JavaScript ",
+    icon: "/tech/typescript.svg",
+    url: "https://www.typescriptlang.org/",
+  },
+  {
+    name: "Reactjs",
+    icon: "/tech/reactjs.svg",
+    url: "www",
+  },
+  {
+    name: "Nextjs",
+    icon: "/tech/nextjs.svg",
+    url: "www",
+  },
+  {
+    name: "Docker",
+    icon: "/tech/docker.svg",
+    url: "www",
+  },
+  {
+    name: "Nestjs",
+    icon: "/tech/nestjs.svg",
+    url: "www",
+  },
+  {
+    name: "Prisma",
+    icon: "/tech/prisma.svg",
+    url: "www",
+  },
+  {
+    name: "SQLite",
+    icon: "/tech/sqlite.svg",
+    url: "www",
+  },
+  {
+    name: "Shadcn",
+    icon: "/tech/shadcn.svg",
+    url: "/tech/shadcn.svg",
+  },
+];

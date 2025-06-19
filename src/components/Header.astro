@@ -1,6 +1,4 @@
 ---
-import Menu from "@icons/Menu.astro";
-import AnimatedText from "@components/AnimatedText.astro";
 import type { HeaderProps } from "@types";
 
 type Props = HeaderProps;
@@ -8,31 +6,21 @@ type Props = HeaderProps;
 const { navLinks } = Astro.props;
 ---
 
-<header class="max-w-5xl mx-auto flex items-center justify-between px-5 py-8 relative border-b border-neutral/20">
-  <a href="/" aria-label="Home link" class="flex items-center">
-    <AnimatedText text="💻 Diseñador de Sitios Web 🚀" />
-  </a>
-
-  <button
-    type="button"
-    id="menu-button"
-    class="sm:hidden text-neutral px-2 py-1"
-    aria-expanded="false"
-    aria-controls="main-menu"
-  >
-    <Menu />
-  </button>
-
+<header
+  class="mx-full flex items-center justify-between px-5 py-8 relative border-b border-neutral/20 bg-[#2C2824] text-[#EDE6DA]"
+>
   <nav
-    class="hidden text-neutral border absolute right-5 top-24 bg-black border-neutral/40 py-6 px-4 rounded-xl sm:block sm:border-0 sm:p-0 sm:static sm:bg-transparent"
+    class="w-full text-[#EDE6DA] bg-transparent sm:bg-transparent"
     id="main-menu"
   >
-    <ul class="sm:flex gap-4">
+    <ul class="flex justify-center items-center gap-6">
       {
         navLinks.map((link) => (
           <li class="relative">
             <a
-              class={`font-medium text-base px-4 py-2 block hover:text-primary nav-item transition-colors duration-300`}
+              class="font-sm md:font-medium text-base px-4 py-2 block rounded-md 
+              transition-colors duration-300
+            hover:text-[#2C2824] hover:bg-[#F5D0A9]"
               href={link.href}
               data-nav-link
             >
@@ -46,21 +34,6 @@ const { navLinks } = Astro.props;
 </header>
 
 <script>
-  const button = document.querySelector("#menu-button");
-  const menu = document.querySelector("#main-menu");
-  const navItems = document.querySelectorAll("#main-menu > ul > li");
-
-  const toggleMenu = () => {
-    menu?.classList.toggle("hidden");
-    const isHidden = menu?.classList.contains("hidden");
-    button?.setAttribute("aria-expanded", `${!isHidden}`);
-  };
-
-  button?.addEventListener("click", toggleMenu);
-  navItems.forEach((item) => {
-    item?.addEventListener("click", toggleMenu);
-  });
-
   function smoothScroll(target: string) {
     if (!target) return;
     const element = document.querySelector(target);
@@ -95,7 +68,9 @@ const { navLinks } = Astro.props;
   links.forEach((link) => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
-      const target = (e.currentTarget as HTMLAnchorElement).getAttribute("href");
+      const target = (e.currentTarget as HTMLAnchorElement).getAttribute(
+        "href",
+      );
       if (target) {
         smoothScroll(target);
       }
