@@ -7,13 +7,13 @@ const { navLinks } = Astro.props;
 ---
 
 <header
-  class="mx-full flex items-center justify-between px-5 py-8 relative border-b border-neutral/20 bg-[#2C2824] text-[#EDE6DA]"
+  class="mx-full flex items-center justify-between p-5 relative border-b border-neutral/20 text-[#EDE6DA]"
 >
   <nav
     class="w-full text-[#EDE6DA] bg-transparent sm:bg-transparent"
     id="main-menu"
   >
-    <ul class="flex justify-center items-center gap-6">
+    <ul class="flex justify-center items-center gap-2">
       {
         navLinks.map((link) => (
           <li class="relative">
