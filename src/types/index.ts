@@ -1,6 +1,7 @@
 export interface SiteConfig extends HeaderProps {
   title: string;
   description: string;
+  image: string;
   lang: string;
   author: string;
   socialLinks: {
@@ -57,4 +58,21 @@ export interface TechStackItem {
   name: string;
   icon: string;
   url: string;
+}
+
+export interface EmploymentItem {
+  role: string;
+  company: string;
+  duration: string;
+  description: string;
+  technologies?: string[];
+  responsibilities: string[];
+  projects?: {
+    name: string;
+    description: string;
+  }[];
+}
+export interface AboutMeItems {
+  name: string;
+  content: string[];
 }
