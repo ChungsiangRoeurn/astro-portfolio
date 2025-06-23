@@ -1,0 +1,21 @@
+---
+import { imageGrid } from "@config";
+---
+
+<section>
+  <div class="grid grid-cols-3 grid-rows-4 gap-3 h-[800px]">
+    {
+      imageGrid.map((item) => (
+        <div
+          class={`relative group overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 ${item.class}`}
+        >
+          <img
+            src={item.image}
+            class={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 ${item.aspect}`}
+            loading="lazy"
+          />
+        </div>
+      ))
+    }
+  </div>
+</section>

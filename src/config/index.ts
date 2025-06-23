@@ -6,7 +6,7 @@ import type {
 } from "../types";
 
 export const SITE_CONFIG: SiteConfig = {
-  title: "Jaing-Sung Here",
+  title: "JiangSung",
   author: "Built with Astro.",
   image: "/chungsiang-logo.png",
   description: "JiangSung, Web Developer from Cambodia",
@@ -67,7 +67,7 @@ export const SITE_CONTENT: SiteContent = {
       summary:
         "A collaborative project built with a friend. I focused on API integration and frontend UI development.",
       link: "https://yourwebsite.com",
-      code: "https://github.com/yourname/quizgen",
+      code: "https://github.com/ChungsiangRoeurn/",
       technologies: ["NextJS", "ShadCN", "Laravel", "MySQL"],
     },
   ],
@@ -89,6 +89,57 @@ export const SITE_CONTENT: SiteContent = {
     image: "/chungsiang.png",
   },
 };
+export const imageGrid = [
+  {
+    id: 1,
+    image: "public/sheep.jpg",
+    class: "row-span-2 col-span-1", // Tall portrait
+    aspect: "aspect-[3/4]",
+    category: "photography",
+  },
+  {
+    id: 2,
+    image: "camcyber.jpg",
+    class: "col-span-2 row-span-1", // Wide landscape
+    aspect: "aspect-[4/3]",
+    category: "nature",
+  },
+  {
+    id: 3,
+    image: "public/dl.jpg",
+    class: "col-span-2 row-span-2", // Large square
+    aspect: "aspect-square",
+    category: "featured",
+  },
+  {
+    id: 4,
+    image: "imhere.jpg",
+    class: "col-span-1 row-span-1", // Small portrait
+    aspect: "aspect-[2/3]",
+    category: "photography",
+  },
+  {
+    id: 5,
+    image: "hereisme.jpg",
+    class: "col-span-1 row-span-1", // Small landscape
+    aspect: "aspect-[3/2]",
+    category: "urban",
+  },
+  {
+    id: 6,
+    image: "alsome.jpg",
+    class: "col-span-1 row-span-1", // Small square
+    aspect: "aspect-square",
+    category: "abstract",
+  },
+  {
+    id: 7,
+    image: "learn.jpg",
+    class: "col-span-1 row-span-1", // Small square
+    aspect: "aspect-square",
+    category: "abstract",
+  },
+];
 
 export const techStack = [
   {
@@ -152,9 +203,7 @@ export const aboutMe: AboutMeItems[] = [
   {
     name: "ROEURN CHUNGSIANG,",
     content: [
-      "A full-stack developer with a strong interest in modern web technologies, user experience, and clean design principles. I enjoy crafting responsive, high-performance applications that are both visually appealing and functionally robust.",
-
-      "I'm currently pursuing a Bachelor's degree in Computer Science at the Royal University of Phnom Penh, where I actively engage in both academic learning and real-world projects. My journey began with frontend development, where I developed a solid foundation in building intuitive user interfaces using tools like React and Tailwind CSS. Over time, my curiosity and desire to understand the full development lifecycle led me to backend development. I now specialize in building scalable and secure RESTful APIs using NestJS and TypeScript. I'm passionate about problem-solving, system design, and creating software that improves lives. I continuously strive to improve my skills, collaborate with like-minded developers, and contribute to meaningful, production-ready applications that make a difference.",
+      "A Fullstack Developer, which have journey began at the end of 2022 after finishing high school. Back then, I only knew a little about IT and thought it was mainly about designing websites. That changed when I joined RUPP in 2023 to study Computer Science. In the beginning, I had to learn many orientation subjects, which was quite challenging. But by my second year, the focus shifted more toward core IT subjects, and that’s when I truly found my passion. I explored UX/UI design with Adobe XD and Figma, studied web design, and even built a full-stack POS system with mentorship from senior students working at the Ministry of Public Works and Transport (MPWT). Later, I passed an internship as a Frontend Developer at the end of my second year at a startup company base in Phnom Penh, Cambodia. Where I gained real-world experience. Today, I’m working as a Backend Developer, building RESTful APIs and continuing to grow my skills in backend development.",
     ],
   },
 ];
