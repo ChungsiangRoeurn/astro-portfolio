@@ -92,7 +92,7 @@ export const SITE_CONTENT: SiteContent = {
 export const imageGrid = [
   {
     id: 1,
-    image: "public/sheep.jpg",
+    image: "sheep.jpg",
     class: "row-span-2 col-span-1", // Tall portrait
     aspect: "aspect-[3/4]",
     category: "photography",
@@ -106,7 +106,7 @@ export const imageGrid = [
   },
   {
     id: 3,
-    image: "public/dl.jpg",
+    image: "dl.jpg",
     class: "col-span-2 row-span-2", // Large square
     aspect: "aspect-square",
     category: "featured",
