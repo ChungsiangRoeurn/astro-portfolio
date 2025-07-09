@@ -13,40 +13,44 @@ const {
   lang,
   author,
   socialLinks,
-  socialImage,
-  canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
+  socialImage = "/seo.png",
+  canonicalURL = "https://chungsiang.co" + Astro.url.pathname,
 } = SITE_CONFIG;
 
-const ogImgUrl = canonicalURL + socialImage;
+const ogImgUrl = Astro.url.origin + socialImage;
 ---
 
 <!doctype html>
 <html lang={lang} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="author" content={author} />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/public/csrounded.png" />
+    <link rel="icon" href="/csrounded.png" />
+    <title>{title}</title>
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImgUrl} />
+    <meta property="og:site_name" content={title} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImgUrl} />
+    <meta name="twitter:image:alt" content={`Preview image for ${title}`} />
+
+    <link rel="canonical" href={canonicalURL} />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
       rel="stylesheet"
     />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonicalURL} />
-    <meta property="og:image" content={ogImgUrl} />
-
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={ogImgUrl} />
     <ViewTransitions />
   </head>
   <body class="font-sans font-light bg-[#2C2824]">
