@@ -8,7 +8,7 @@ import type {
 export const SITE_CONFIG: SiteConfig = {
   title: "JiangSung",
   author: "Built with Astro.",
-    image: "/chungsiang-logo.png",
+  image: "/chungsiang-logo.png",
   description: "JiangSung, Web Developer based in Cambodia",
   lang: "km,en",
   siteLogo: "/chungsiang-logo.png",
