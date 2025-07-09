@@ -8,8 +8,8 @@ import type {
 export const SITE_CONFIG: SiteConfig = {
   title: "JiangSung",
   author: "Built with Astro.",
-  image: "/chungsiang-logo.png",
-  description: "JiangSung, Web Developer from Cambodia",
+    image: "/chungsiang-logo.png",
+  description: "JiangSung, Web Developer based in Cambodia",
   lang: "km,en",
   siteLogo: "/chungsiang-logo.png",
   navLinks: [
@@ -40,8 +40,8 @@ export const SITE_CONFIG: SiteConfig = {
       icon: "/icons/telegram.svg",
     },
   ],
-  socialImage: "/icons/telegram.svg",
-  canonicalURL: "https://chungsiang-roeurn.vercel.app/",
+  socialImage: "/seo.png",
+  canonicalURL: "https://chungsiang.co",
 };
 
 export const SITE_CONTENT: SiteContent = {
@@ -63,12 +63,12 @@ export const SITE_CONTENT: SiteContent = {
       technologies: ["NextJS", "Tailwind CSS", "ShadCN", "GoogleAPI"],
     },
     {
-      name: "E-commerce Electronics Store",
+      name: "Reatrey POS",
       summary:
         "A collaborative project built with a friend. I focused on API integration and frontend UI development.",
-      link: "https://yourwebsite.com",
-      code: "https://github.com/ChungsiangRoeurn/",
-      technologies: ["NextJS", "ShadCN", "Laravel", "MySQL"],
+      link: "https://reatreypos.com",
+      code: "https://github.com/ChungsiangRoeurn/reatrey-pos",
+      technologies: ["NextJS", "NestJS", "ShadCN", "Prisma", "Turborepo"],
     },
   ],
   about: {
@@ -153,7 +153,7 @@ export const techStack = [
     url: "https://tailwindcss.com",
   },
   {
-    name: "Javascript",
+    name: "JavaScript",
     icon: "/tech/javascript.svg",
     url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
   },
