@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chungsiang.co/sitemap-index.xml
