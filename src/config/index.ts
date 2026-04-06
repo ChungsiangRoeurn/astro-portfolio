@@ -40,7 +40,7 @@ export const SITE_CONFIG: SiteConfig = {
       icon: "/icons/telegram.svg",
     },
   ],
-  socialImage: "/seo.png",
+  socialImage: "/home-seo.png",
   canonicalURL: "https://chungsiang.co",
 };
 

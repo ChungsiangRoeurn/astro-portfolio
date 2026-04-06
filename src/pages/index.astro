@@ -8,7 +8,11 @@ import { SITE_CONTENT, techStack } from "@config";
 import ImageGrid from "@components/ImageGrid.astro";
 ---
 
-<Layout>
+<Layout 
+  title="Home"
+  description="Welcome to JiangSung portfolio"
+  ogImage="/home-seo.png"
+>
   <Hero {...SITE_CONTENT.hero} />
   <About {...SITE_CONTENT.about} name={SITE_CONTENT.hero.name} />
   <ImageGrid />

@@ -6,21 +6,41 @@ import { SITE_CONFIG } from "@config";
 import SpeedInsights from "@vercel/speed-insights/astro";
 import Analytics from "@vercel/analytics/astro";
 
+// Accept props so individual pages can override the defaults
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  articleDate?: string;
+}
+
 const {
-  title,
-  description,
+  title: pageTitle,
+  description: pageDescription,
+  ogImage,
+  articleDate,
+} = Astro.props;
+
+const {
+  title: defaultTitle,
+  description: defaultDescription,
   siteLogo,
   navLinks,
   lang,
   author,
   socialLinks,
-  socialImage = "/seo.png",
-  canonicalURL: defaultCanonicalURL = "https://chungsiang.co",
+  socialImage: defaultSocialImage = "/home-seo.png",
+  canonicalURL: siteBaseURL = "https://chungsiang.co",
 } = SITE_CONFIG;
 
-// Construct canonical and OG image URLs
-const canonicalURL = defaultCanonicalURL + (Astro.url.pathname || "/");
-const ogImgUrl = defaultCanonicalURL + socialImage;
+// Logic: Use page-specific content, otherwise fallback to SITE_CONFIG
+const title = pageTitle ? `${pageTitle} | ${defaultTitle}` : defaultTitle;
+const description = pageDescription || defaultDescription;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || siteBaseURL)
+  .href;
+const ogImgUrl = ogImage
+  ? new URL(ogImage, siteBaseURL).href
+  : `${siteBaseURL}/api/og?title=${encodeURIComponent(pageTitle || defaultTitle)}`;
 ---
 
 <!doctype html>
@@ -28,31 +48,49 @@ const ogImgUrl = defaultCanonicalURL + socialImage;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/csrounded.png" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="title" content={title} />
     <meta name="description" content={description} />
     <meta name="author" content={author} />
-    <link rel="icon" href="/csrounded.png" />
-    <title>{title}</title>
 
-    <!-- Open Graph / Social -->
+    <link rel="canonical" href={canonicalURL} />
+
+    <meta property="og:type" content={articleDate ? "article" : "website"} />
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={ogImgUrl} />
-    <meta property="og:site_name" content={title} />
+    {
+      articleDate && (
+        <meta property="article:published_time" content={articleDate} />
+      )
+    }
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImgUrl} />
-    <meta name="twitter:image:alt" content={`Preview image for ${title}`} />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImgUrl} />
+
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: author,
+        url: canonicalURL,
+        image: ogImgUrl,
+        jobTitle: "Fullstack Developer",
+        sameAs: socialLinks.map((link) => link.href),
+      })}
+    />
 
     <SpeedInsights />
 
-    <!-- Canonical -->
-    <link rel="canonical" href={canonicalURL} />
-
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -61,7 +99,7 @@ const ogImgUrl = defaultCanonicalURL + socialImage;
     />
   </head>
 
-  <body class="font-sans font-light bg-[#101828]">
+  <body class="font-sans font-light bg-[#101828] text-white">
     <Header siteLogo={siteLogo} navLinks={navLinks} />
 
     <main class="max-w-3xl px-5 mx-auto">
@@ -71,11 +109,6 @@ const ogImgUrl = defaultCanonicalURL + socialImage;
     <Footer author={author} socialLinks={socialLinks} />
     <ScrollToTop />
 
-    <!-- Vercel Analytics -->
-    <script
-      defer
-      src="https://static.vercel-insights.com/script.js"
-      data-token="prj_NFTW2PNuR5wmFXdA67sCuNviLOC3"></script>
     <Analytics mode="production" />
   </body>
 </html>
