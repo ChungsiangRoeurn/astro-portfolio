@@ -8,9 +8,10 @@ import { SITE_CONTENT, techStack } from "@config";
 import ImageGrid from "@components/ImageGrid.astro";
 ---
 
-<Layout
-  title="Homepage"
-  description="Welcome to my personal website! I'm a passionate software developer with a love for creating innovative solutions. Here, you'll find information about my background, projects I've worked on, and the technologies I specialize in. Feel free to explore and learn more about me!"
+<Layout 
+  title="Home"
+  description="Welcome to JiangSung portfolio"
+  ogImage="/home-seo.png"
 >
   <Hero {...SITE_CONTENT.hero} />
   <About {...SITE_CONTENT.about} name={SITE_CONTENT.hero.name} />

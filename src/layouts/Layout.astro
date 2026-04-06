@@ -11,14 +11,14 @@ interface Props {
   title?: string;
   description?: string;
   ogImage?: string;
-  articleDate?: string; // Optional: for blog posts
+  articleDate?: string;
 }
 
-const { 
-  title: pageTitle, 
-  description: pageDescription, 
-  ogImage, 
-  articleDate 
+const {
+  title: pageTitle,
+  description: pageDescription,
+  ogImage,
+  articleDate,
 } = Astro.props;
 
 const {
@@ -29,15 +29,18 @@ const {
   lang,
   author,
   socialLinks,
-  socialImage: defaultSocialImage = "/seo.png",
+  socialImage: defaultSocialImage = "/home-seo.png",
   canonicalURL: siteBaseURL = "https://chungsiang.co",
 } = SITE_CONFIG;
 
 // Logic: Use page-specific content, otherwise fallback to SITE_CONFIG
 const title = pageTitle ? `${pageTitle} | ${defaultTitle}` : defaultTitle;
 const description = pageDescription || defaultDescription;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || siteBaseURL).href;
-const ogImgUrl = new URL(ogImage || defaultSocialImage, siteBaseURL).href;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || siteBaseURL)
+  .href;
+const ogImgUrl = ogImage
+  ? new URL(ogImage, siteBaseURL).href
+  : `${siteBaseURL}/api/og?title=${encodeURIComponent(pageTitle || defaultTitle)}`;
 ---
 
 <!doctype html>
@@ -60,7 +63,11 @@ const ogImgUrl = new URL(ogImage || defaultSocialImage, siteBaseURL).href;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImgUrl} />
-    {articleDate && <meta property="article:published_time" content={articleDate} />}
+    {
+      articleDate && (
+        <meta property="article:published_time" content={articleDate} />
+      )
+    }
 
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonicalURL} />
@@ -68,17 +75,19 @@ const ogImgUrl = new URL(ogImage || defaultSocialImage, siteBaseURL).href;
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={ogImgUrl} />
 
-    <script type="application/ld+json" is:inline set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": title,
-      "description": description,
-      "url": canonicalURL,
-      "author": {
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
         "@type": "Person",
-        "name": author
-      }
-    })} />
+        name: author,
+        url: canonicalURL,
+        image: ogImgUrl,
+        jobTitle: "Fullstack Developer",
+        sameAs: socialLinks.map((link) => link.href),
+      })}
+    />
 
     <SpeedInsights />
 
