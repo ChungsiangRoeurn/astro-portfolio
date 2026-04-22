@@ -55,6 +55,29 @@ export const SITE_CONTENT: SiteContent = {
   },
   projects: [
     {
+      name: "Menulo - ( In Progress )",
+      summary:
+        "Food ordering system which i plan to use in the resturant pub. that can make shop owner easy when customer sit in the table, scan qr and order !",
+      link: "https://t.me/trello_26_bot",
+      code: "https://github.com/ChungsiangRoeurn/",
+      technologies: [
+        "ReactJS",
+        "Typescript",
+        "Tailwind CSS",
+        "Express API",
+        "MySQL",
+        "Prisma",
+      ],
+    },
+    {
+      name: "Trello Mini App",
+      summary:
+        "Telegram mini app which build for manage my own task, work and also make me easy to control what to do. It seem like todo list app but it's not!",
+      link: "https://t.me/trello_26_bot",
+      code: "",
+      technologies: ["ReactJS", "Typescript", "Tailwind CSS", "Supabase"],
+    },
+    {
       name: "1965.Store Ecommerce",
       summary:
         "A mid-level e-commerce platform offering easy online purchasing and payment, designed to be simpler than other options!",
