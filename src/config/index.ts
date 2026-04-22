@@ -259,7 +259,7 @@ export const aboutMe: AboutMeItems[] = [
 export const employmentItems: EmploymentItem[] = [
   {
     role: "Junior Mobile Developer",
-    company: "NTX Mall Cambodia",
+    company: "Nano Sound Cambodia",
     duration: "Dec 2025 – Present",
     description:
       "Learning, building maintain real-world fullstack mobile app development and system design.",
